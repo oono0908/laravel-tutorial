@@ -5,6 +5,7 @@
 <h1>
   <a href="{{url("/posts/create")}}" class="header-menu">new post</a>
   Blog Posts</h1>
+  <a href="{{url("posts/test")}}">test</a>
     <ul>
       @forelse($posts as $post)
       <li><a href="{{ action('App\Http\Controllers\PostsController@show', $post) }}">{{$post->title}}</a>

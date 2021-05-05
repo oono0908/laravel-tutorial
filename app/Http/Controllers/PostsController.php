@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use \App\Models\Post;
 use \App\Http\Requests\PostRequest;
+
 class PostsController extends Controller
 {
     public function index($id="noname",$pass="unknown"){
+        // $posts = DB::select("select * from posts");
+        // return view("posts.index",["posts"=>"$posts"]);
       $posts = Post::latest()->get();
       return view("Posts.index",["posts" => $posts]);
 }
@@ -40,4 +44,12 @@ public function destroy(Post $post) {
     $post->delete();
     return redirect('/');
   }
+
+  public function test() {
+    $tests = DB::select("select * from posts");
+     return view("posts.test")->with("tests",$tests);
+  }
+
+
 }
+

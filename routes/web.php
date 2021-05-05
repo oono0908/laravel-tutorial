@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('hello/{id?}/{pass?}', 'App\Http\Controllers\HelloController@index');
-
 Route::get('/', 'App\Http\Controllers\PostsController@index');
 Route::get('/posts{id}', 'App\Http\Controllers\PostsController@show')->where('post', '[0-9]+');
 Route::get('/posts/create', 'App\Http\Controllers\PostsController@create');
@@ -30,3 +29,4 @@ Route::patch('/posts/{post}', 'App\Http\Controllers\PostsController@update');
 Route::delete('/posts/{post}', 'App\Http\Controllers\PostsController@destroy');
 Route::post('/posts/{post}/comments', 'App\Http\Controllers\CommentsController@store');
 Route::delete('/posts/{post}/comments/{comment}', 'App\Http\Controllers\CommentsController@destroy');
+Route::get('posts/test', 'App\Http\Controllers\PostsController@test');
